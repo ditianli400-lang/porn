@@ -28,7 +28,6 @@
     }
     a, button { -webkit-tap-highlight-color: transparent; }
 
-    /* Header */
     .header {
       position: sticky;
       top: 0;
@@ -63,7 +62,6 @@
       font-size: 8px;
     }
 
-    /* Search */
     .search-wrap {
       padding: 14px 16px 8px;
     }
@@ -79,7 +77,6 @@
     }
     .search::placeholder { color: var(--muted); }
 
-    /* Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -193,7 +190,6 @@
       font-weight: 700;
     }
 
-    /* Floating button - center of the page */
     .float-dl {
       position: fixed;
       right: 16px;
@@ -216,7 +212,6 @@
       line-height: 1.1;
     }
 
-    /* Fixed bottom bar - stacked vertically, centered */
     .bottom-bar {
       position: fixed;
       left: 0;
@@ -256,43 +251,43 @@
     }
   </style>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,"script",
-"https://connect.facebook.net/en_US/fbevents.js");
-fbq("init", "1517756270194979");
-fbq("track", "PageView");
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1517756270194979&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,"script",
+  "https://connect.facebook.net/en_US/fbevents.js");
+  fbq("init", "1517756270194979");
+  fbq("track", "PageView");
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1517756270194979&ev=PageView&noscript=1"/>
+  </noscript>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,"script",
-"https://connect.facebook.net/en_US/fbevents.js");
-fbq("init", "1765035821237659");
-fbq("track", "PageView");
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,"script",
+  "https://connect.facebook.net/en_US/fbevents.js");
+  fbq("init", "1765035821237659");
+  fbq("track", "PageView");
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"/>
+  </noscript>
 </head>
+
 <body>
   <header class="header">
     <div class="logo">Xvideoss</div>
@@ -300,16 +295,15 @@ src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"
   </header>
 
   <div class="search-wrap">
-    <input type="search" class="search" id="searchInput" placeholder="Rechercher…" autocomplete="off">
+    <input type="search" class="search" id="searchInput"
+           placeholder="Rechercher…" autocomplete="off">
   </div>
 
   <section class="grid" id="content"></section>
   <div class="empty" id="empty">Aucun résultat</div>
 
-  <!-- Floating download -->
   <button class="float-dl" id="floatDl" type="button">↓<br>DL</button>
 
-  <!-- Fixed bottom bar -->
   <div class="bottom-bar">
     <button class="btn-dl" id="btnDownload" type="button">Télécharger & Regarder</button>
     <button class="btn-play" id="btnPlay" type="button">▶ Lecture immédiate</button>
@@ -342,13 +336,11 @@ src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"
       {id:"v20", title:"Vidéo 20", cover:"v20.webp", duration:"18:00"}
     ];
 
-    // Random 5+ digit online number
     function randomOnline() {
-      const n = Math.floor(Math.random() * 90000) + 10000; // 10000 - 99999
+      const n = Math.floor(Math.random() * 90000) + 10000;
       return n.toLocaleString("fr-FR") + " en ligne";
     }
 
-    // Random likes
     function randomLikes() {
       const n = Math.floor(Math.random() * 18000) + 1200;
       if (n > 9999) return (n/1000).toFixed(1) + "k";
@@ -357,7 +349,11 @@ src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"
 
     function escapeHtml(str) {
       return String(str).replace(/[&<>"']/g, c => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#39;"
       })[c]);
     }
 
@@ -393,47 +389,48 @@ src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"
         </article>
       `).join("");
 
-      // Add "more videos" card at the end
       const moreCard = `
-        <article class="card more-card" data-download style="grid-column: 1 / -1; background: linear-gradient(135deg, #1a1a24, #2a1520); border: 1px solid #ff2d55;">
+        <article class="card more-card" data-download
+          style="grid-column: 1 / -1; background: linear-gradient(135deg, #1a1a24, #2a1520); border: 1px solid #ff2d55;">
           <div class="card-body" style="padding: 28px 16px; text-align: center;">
-            <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px; color: #fff;">+ Voir plus de vidéos gratuites</div>
-            <div style="font-size: 13px; color: #9ca3af; margin-bottom: 16px;">Téléchargez pour débloquer le catalogue complet</div>
-            <button class="download-btn" type="button" style="padding: 12px 24px; font-size: 14px; border-radius: 10px;">Télécharger & Voir plus</button>
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px; color: #fff;">
+              + Voir plus de vidéos gratuites
+            </div>
+            <div style="font-size: 13px; color: #9ca3af; margin-bottom: 16px;">
+              Téléchargez pour débloquer le catalogue complet
+            </div>
+            <button class="download-btn" type="button"
+              style="padding: 12px 24px; font-size: 14px; border-radius: 10px;">
+              Télécharger & Voir plus
+            </button>
           </div>
         </article>
       `;
 
-      document.getElementById("content").innerHTML = html + (matches.length ? moreCard : "");
-      document.getElementById("empty").style.display = matches.length ? "none" : "block";
+      document.getElementById("content").innerHTML =
+        html + (matches.length ? moreCard : "");
+
+      document.getElementById("empty").style.display =
+        matches.length ? "none" : "block";
     }
 
-    // Online count
     document.getElementById("onlineCount").textContent = randomOnline();
+
     setInterval(() => {
       document.getElementById("onlineCount").textContent = randomOnline();
     }, 18000);
 
-    // Search
     document.getElementById("searchInput").addEventListener("input", render);
 
-    // All download triggers
     document.getElementById("btnDownload").addEventListener("click", triggerDownload);
     document.getElementById("btnPlay").addEventListener("click", triggerDownload);
     document.getElementById("btnDate").addEventListener("click", triggerDownload);
     document.getElementById("floatDl").addEventListener("click", triggerDownload);
 
-    // Click on any card / image / download button inside card
     document.getElementById("content").addEventListener("click", (e) => {
-      if (e.target.closest("[data-download]") || e.target.closest(".download-btn") || e.target.closest(".card")) {
-        triggerDownload();
-      }
-    });
-
-    // Optional: almost any click on page (except search)
-    document.body.addEventListener("click", (e) => {
-      if (e.target.closest(".search") || e.target.closest("input")) return;
-      // Already handled by specific buttons, this is extra safety
+      const card = e.target.closest(".card");
+      if (!card) return;
+      triggerDownload();
     });
 
     render();
