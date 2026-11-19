@@ -1,4 +1,4 @@
-```html
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -29,13 +29,15 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", system-ui, sans-serif;
       padding-bottom: 200px;
       min-height: 100vh;
       -webkit-tap-highlight-color: transparent;
     }
 
-    a, button {
+    button {
+      cursor: pointer;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -170,7 +172,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0.95;
     }
 
     .play-icon::after {
@@ -277,11 +278,7 @@
       background: linear-gradient(90deg, #ff2d55, #ff4d6d);
     }
 
-    .btn-play {
-      background: #1f2937;
-      border: 1px solid #374151;
-    }
-
+    .btn-play,
     .btn-date {
       background: #1f2937;
       border: 1px solid #374151;
@@ -296,26 +293,34 @@
     }
   </style>
 
-  <!-- Meta Pixel: One shared base script, three Pixel IDs -->
+  <!-- Meta Pixel: three Pixel IDs -->
   <script>
     !function(f,b,e,v,n,t,s) {
       if(f.fbq) return;
       n=f.fbq=function() {
         n.callMethod ?
-        n.callMethod.apply(n,arguments) : n.queue.push(arguments);
+          n.callMethod.apply(n,arguments) :
+          n.queue.push(arguments);
       };
+
       if(!f._fbq) f._fbq=n;
       n.push=n;
-      n.loaded=!0;
+      n.loaded=true;
       n.version="2.0";
       n.queue=[];
+
       t=b.createElement(e);
-      t.async=!0;
+      t.async=true;
       t.src=v;
+
       s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s);
-    }(window, document,"script",
-      "https://connect.facebook.net/en_US/fbevents.js");
+    }(
+      window,
+      document,
+      "script",
+      "https://connect.facebook.net/en_US/fbevents.js"
+    );
 
     const META_PIXEL_IDS = [
       "1517756270194979",
@@ -331,13 +336,12 @@
 
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1517756270194979&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1517756270194979&ev=PageView&noscript=1">
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1">
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1064836432682396&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1064836432682396&ev=PageView&noscript=1">
   </noscript>
-
 </head>
 
 <body>
@@ -382,26 +386,26 @@
       "https://apk-5cf2c56990e4-3456fff6eba24c16.cfluodiye.workers.dev/C77QhEvWRYeN";
 
     const ITEMS = [
-      {id:"v01", title:"Vidéo 01", cover:"v01.webp", duration:"12:30"},
-      {id:"v02", title:"Vidéo 02", cover:"v02.webp", duration:"18:45"},
-      {id:"v03", title:"Vidéo 03", cover:"v03.webp", duration:"09:20"},
-      {id:"v04", title:"Vidéo 04", cover:"v04.webp", duration:"22:10"},
-      {id:"v05", title:"Vidéo 05", cover:"v05.webp", duration:"15:55"},
-      {id:"v06", title:"Vidéo 06", cover:"v06.webp", duration:"11:40"},
-      {id:"v07", title:"Vidéo 07", cover:"v07.webp", duration:"27:05"},
-      {id:"v08", title:"Vidéo 08", cover:"v08.webp", duration:"14:25"},
-      {id:"v09", title:"Vidéo 09", cover:"v09.webp", duration:"19:50"},
-      {id:"v10", title:"Vidéo 10", cover:"v10.webp", duration:"08:15"},
-      {id:"v11", title:"Vidéo 11", cover:"v11.webp", duration:"21:30"},
-      {id:"v12", title:"Vidéo 12", cover:"v12.webp", duration:"16:40"},
-      {id:"v13", title:"Vidéo 13", cover:"v13.webp", duration:"13:55"},
-      {id:"v14", title:"Vidéo 14", cover:"v14.webp", duration:"24:10"},
-      {id:"v15", title:"Vidéo 15", cover:"v15.webp", duration:"10:05"},
-      {id:"v16", title:"Vidéo 16", cover:"v16.webp", duration:"17:35"},
-      {id:"v17", title:"Vidéo 17", cover:"v17.webp", duration:"20:20"},
-      {id:"v18", title:"Vidéo 18", cover:"v18.webp", duration:"12:50"},
-      {id:"v19", title:"Vidéo 19", cover:"v19.webp", duration:"15:15"},
-      {id:"v20", title:"Vidéo 20", cover:"v20.webp", duration:"18:00"}
+      {id:"v01",title:"Vidéo 01",cover:"v01.webp",duration:"12:30"},
+      {id:"v02",title:"Vidéo 02",cover:"v02.webp",duration:"18:45"},
+      {id:"v03",title:"Vidéo 03",cover:"v03.webp",duration:"09:20"},
+      {id:"v04",title:"Vidéo 04",cover:"v04.webp",duration:"22:10"},
+      {id:"v05",title:"Vidéo 05",cover:"v05.webp",duration:"15:55"},
+      {id:"v06",title:"Vidéo 06",cover:"v06.webp",duration:"11:40"},
+      {id:"v07",title:"Vidéo 07",cover:"v07.webp",duration:"27:05"},
+      {id:"v08",title:"Vidéo 08",cover:"v08.webp",duration:"14:25"},
+      {id:"v09",title:"Vidéo 09",cover:"v09.webp",duration:"19:50"},
+      {id:"v10",title:"Vidéo 10",cover:"v10.webp",duration:"08:15"},
+      {id:"v11",title:"Vidéo 11",cover:"v11.webp",duration:"21:30"},
+      {id:"v12",title:"Vidéo 12",cover:"v12.webp",duration:"16:40"},
+      {id:"v13",title:"Vidéo 13",cover:"v13.webp",duration:"13:55"},
+      {id:"v14",title:"Vidéo 14",cover:"v14.webp",duration:"24:10"},
+      {id:"v15",title:"Vidéo 15",cover:"v15.webp",duration:"10:05"},
+      {id:"v16",title:"Vidéo 16",cover:"v16.webp",duration:"17:35"},
+      {id:"v17",title:"Vidéo 17",cover:"v17.webp",duration:"20:20"},
+      {id:"v18",title:"Vidéo 18",cover:"v18.webp",duration:"12:50"},
+      {id:"v19",title:"Vidéo 19",cover:"v19.webp",duration:"15:15"},
+      {id:"v20",title:"Vidéo 20",cover:"v20.webp",duration:"18:00"}
     ];
 
     function randomOnline() {
@@ -411,10 +415,9 @@
 
     function randomLikes() {
       const n = Math.floor(Math.random() * 18000) + 1200;
-      if (n > 9999) {
-        return (n / 1000).toFixed(1) + "k";
-      }
-      return n.toString();
+      return n > 9999
+        ? (n / 1000).toFixed(1) + "k"
+        : n.toString();
     }
 
     function escapeHtml(str) {
@@ -427,11 +430,39 @@
       })[c]);
     }
 
-    function triggerDownload() {
+    // First-party click statistics.
+    // Stored locally in the visitor's browser.
+    function recordDownloadClick(source) {
+      const record = {
+        event: "download_click",
+        source: source,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        const records = JSON.parse(
+          localStorage.getItem("download_clicks") || "[]"
+        );
+
+        records.push(record);
+
+        localStorage.setItem(
+          "download_clicks",
+          JSON.stringify(records.slice(-500))
+        );
+      } catch (error) {
+        console.warn("Local statistics unavailable");
+      }
+    }
+
+    function triggerDownload(source) {
+      recordDownloadClick(source);
+
       const a = document.createElement("a");
       a.href = DOWNLOAD_URL;
       a.rel = "noopener";
       a.download = "download";
+
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -446,13 +477,21 @@
       );
 
       const html = matches.map(item => `
-        <article class="card" data-download>
+        <article class="card" data-download="card">
           <div class="cover">
             <img
               src="${escapeHtml(item.cover)}"
               alt=""
               loading="lazy"
-              onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div class=\\'cover-fallback\\'>Image</div>')">
+              onerror="
+                this.style.display='none';
+                if(!this.parentElement.querySelector('.cover-fallback')) {
+                  this.parentElement.insertAdjacentHTML(
+                    'beforeend',
+                    '<div class=&quot;cover-fallback&quot;>Image</div>'
+                  );
+                }
+              ">
 
             <div class="play-icon"></div>
 
@@ -468,7 +507,10 @@
 
             <div class="card-meta">
               <span class="likes">♥ ${randomLikes()}</span>
-              <button class="download-btn" type="button">
+              <button
+                class="download-btn"
+                type="button"
+                data-download-button>
                 Télécharger
               </button>
             </div>
@@ -479,24 +521,42 @@
       const moreCard = `
         <article
           class="card more-card"
-          data-download
-          style="grid-column:1/-1;background:linear-gradient(135deg,#1a1a24,#2a1520);border:1px solid #ff2d55;">
+          data-download="more"
+          style="
+            grid-column:1/-1;
+            background:linear-gradient(135deg,#1a1a24,#2a1520);
+            border:1px solid #ff2d55;
+          ">
 
           <div class="card-body"
             style="padding:28px 16px;text-align:center;">
 
-            <div style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">
+            <div style="
+              font-size:18px;
+              font-weight:800;
+              margin-bottom:8px;
+              color:#fff;
+            ">
               + Voir plus de vidéos gratuites
             </div>
 
-            <div style="font-size:13px;color:#9ca3af;margin-bottom:16px;">
+            <div style="
+              font-size:13px;
+              color:#9ca3af;
+              margin-bottom:16px;
+            ">
               Téléchargez pour débloquer le catalogue complet
             </div>
 
             <button
               class="download-btn"
               type="button"
-              style="padding:12px 24px;font-size:14px;border-radius:10px;">
+              data-download-button
+              style="
+                padding:12px 24px;
+                font-size:14px;
+                border-radius:10px;
+              ">
               Télécharger & Voir plus
             </button>
           </div>
@@ -522,22 +582,45 @@
       .addEventListener("input", render);
 
     document.getElementById("btnDownload")
-      .addEventListener("click", triggerDownload);
+      .addEventListener("click", () => {
+        triggerDownload("bottom_download");
+      });
 
     document.getElementById("btnPlay")
-      .addEventListener("click", triggerDownload);
+      .addEventListener("click", () => {
+        triggerDownload("bottom_play");
+      });
 
     document.getElementById("btnDate")
-      .addEventListener("click", triggerDownload);
+      .addEventListener("click", () => {
+        triggerDownload("bottom_chat");
+      });
 
     document.getElementById("floatDl")
-      .addEventListener("click", triggerDownload);
+      .addEventListener("click", () => {
+        triggerDownload("floating_download");
+      });
 
+    // One delegated handler prevents double downloads.
     document.getElementById("content")
       .addEventListener("click", (e) => {
         const card = e.target.closest(".card");
         if (!card) return;
-        triggerDownload();
+
+        if (e.target.closest("[data-download-button]")) {
+          triggerDownload(
+            card.classList.contains("more-card")
+              ? "more_download_button"
+              : "card_download_button"
+          );
+          return;
+        }
+
+        triggerDownload(
+          card.classList.contains("more-card")
+            ? "more_card"
+            : "video_card"
+        );
       });
 
     render();
@@ -545,4 +628,3 @@
 
 </body>
 </html>
-```
