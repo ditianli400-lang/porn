@@ -308,10 +308,11 @@ src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"
 
   <!-- Floating download -->
   <button class="float-dl" id="floatDl" type="button">↓<br>DL</button>
+
   <!-- Fixed bottom bar -->
   <div class="bottom-bar">
     <button class="btn-dl" id="btnDownload" type="button">Télécharger & Regarder</button>
-    <button class="btn-play" id="btnPlay" type="button">▶️ Lecture immédiate</button>
+    <button class="btn-play" id="btnPlay" type="button">▶ Lecture immédiate</button>
     <button class="btn-date" id="btnDate" type="button">💬 Discuter avec elle</button>
   </div>
 
@@ -385,7 +386,7 @@ src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"
           <div class="card-body">
             <div class="card-title">${escapeHtml(item.title)}</div>
             <div class="card-meta">
-              <span class="likes">♥️ ${randomLikes()}</span>
+              <span class="likes">♥ ${randomLikes()}</span>
               <button class="download-btn" type="button">Télécharger</button>
             </div>
           </div>
@@ -424,7 +425,7 @@ src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1"
 
     // Click on any card / image / download button inside card
     document.getElementById("content").addEventListener("click", (e) => {
-      if (e.target.closest("[data-download]")  e.target.closest(".download-btn")  e.target.closest(".card")) {
+      if (e.target.closest("[data-download]") || e.target.closest(".download-btn") || e.target.closest(".card")) {
         triggerDownload();
       }
     });
