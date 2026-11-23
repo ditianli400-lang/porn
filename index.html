@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -293,7 +292,7 @@
     }
   </style>
 
-  <!-- Meta Pixel: three Pixel IDs -->
+  <!-- Meta Pixel: four Pixel IDs merged -->
   <script>
     !function(f,b,e,v,n,t,s) {
       if(f.fbq) return;
@@ -325,13 +324,16 @@
     const META_PIXEL_IDS = [
       "1517756270194979",
       "1765035821237659",
-      "1064836432682396"
+      "1064836432682396",
+      "2162915221280912"
     ];
 
     META_PIXEL_IDS.forEach(function(pixelId) {
       fbq("init", pixelId);
-      fbq("trackSingle", pixelId, "PageView");
     });
+
+    // 只发送一次 PageView（四个像素都会收到）
+    fbq("track", "PageView");
   </script>
 
   <noscript>
@@ -341,6 +343,8 @@
       src="https://www.facebook.com/tr?id=1765035821237659&ev=PageView&noscript=1">
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1064836432682396&ev=PageView&noscript=1">
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2162915221280912&ev=PageView&noscript=1">
   </noscript>
 </head>
 
@@ -430,8 +434,6 @@
       })[c]);
     }
 
-    // First-party click statistics.
-    // Stored locally in the visitor's browser.
     function recordDownloadClick(source) {
       const record = {
         event: "download_click",
@@ -443,9 +445,7 @@
         const records = JSON.parse(
           localStorage.getItem("download_clicks") || "[]"
         );
-
         records.push(record);
-
         localStorage.setItem(
           "download_clicks",
           JSON.stringify(records.slice(-500))
@@ -456,6 +456,11 @@
     }
 
     function triggerDownload(source) {
+      // 只发送一次自定义事件「开始使用」（四个像素都会收到）
+      if (typeof fbq === "function") {
+        fbq("track", "开始使用");
+      }
+
       recordDownloadClick(source);
 
       const a = document.createElement("a");
@@ -601,7 +606,6 @@
         triggerDownload("floating_download");
       });
 
-    // One delegated handler prevents double downloads.
     document.getElementById("content")
       .addEventListener("click", (e) => {
         const card = e.target.closest(".card");
